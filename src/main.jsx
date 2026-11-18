@@ -1,6 +1,6 @@
 import { StrictMode, useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import { HashRouter, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { BarChart3, Boxes, ChevronRight, CircleDollarSign, LayoutDashboard, Menu, Package, PanelLeft, PanelLeftClose, Search, Settings, ShoppingCart, Truck, Users, X } from 'lucide-react'
 import './styles.css'
 import { auth, firebaseConfigured } from './services/firebase'
@@ -96,4 +96,4 @@ function PrinterSettings({ onAction }) { const saved = JSON.parse(localStorage.g
 function Dialog({ title, onClose, children }) { return <ShadDialog open onOpenChange={(open) => !open && onClose()}><DialogContent><DialogHeader><DialogTitle>{title}</DialogTitle></DialogHeader>{children}</DialogContent></ShadDialog> }
 function ModulePlaceholder({ name, query, onAction }) { return <section className="module-empty"><div className="empty-icon large"><Boxes size={26} /></div><h2>{name} belum terhubung</h2><p>Foundation UI siap. Hubungkan Firebase sebelum menampilkan atau mengubah data bisnis.</p>{query && <p className="query-note">Pencarian: “{query}”</p>}<button className="primary-button" onClick={() => onAction('Firebase config belum diisi')}>Buka konfigurasi</button></section> }
 
-createRoot(document.getElementById('root')).render(<StrictMode><BrowserRouter><App /></BrowserRouter></StrictMode>)
+createRoot(document.getElementById('root')).render(<StrictMode><HashRouter><App /></HashRouter></StrictMode>)
